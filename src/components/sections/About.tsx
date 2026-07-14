@@ -116,8 +116,8 @@ export default function About() {
                   position: "relative",
                   display: "flex",
                   alignItems: "flex-end",
-                  padding: "2.5rem",
                 }}
+                className="about-image-bottom-content"
               >
                 <div
                   style={{
@@ -171,19 +171,7 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-              style={{
-                position: "absolute",
-                bottom: "2rem",
-                right: "1.5rem",
-                background: "white",
-                borderRadius: "16px",
-                padding: "1rem 1.25rem",
-                boxShadow: "0 16px 48px rgba(0,0,0,0.15)",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                zIndex: 3,
-              }}
+              className="about-badge-bottom-right"
             >
               <div
                 style={{
