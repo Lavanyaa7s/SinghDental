@@ -7,6 +7,11 @@ export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Disable JS smooth scrolling on mobile touch devices so native hardware-accelerated touch scrolling runs at 60FPS
+    if (typeof window !== "undefined" && (window.innerWidth <= 768 || "ontouchstart" in window || navigator.maxTouchPoints > 0)) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

@@ -12,8 +12,9 @@ const subtitle = "Modern Dentistry Designed Around You.";
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "25%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "15%"]);
 
   return (
     <section ref={sectionRef} className="hero-section" id="home" style={{ minHeight: "100dvh" }}>
@@ -112,8 +113,8 @@ export default function Hero() {
                 initial={{ y: "110%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 0.3 + i * 0.12,
+                  duration: isMobile ? 0.5 : 0.8,
+                  delay: isMobile ? 0.1 + i * 0.08 : 0.3 + i * 0.12,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 style={{

@@ -1076,3 +1076,36 @@
     padding: 0.85rem 1rem;
   }
 }
+
+/* ===== MOBILE GPU & TOUCH 60FPS PERFORMANCE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* 1. Hide all 19 heavy blur(110px) ambient background circles on mobile devices to prevent GPU rasterization hang and stutter */
+  .ambient-blur-circle {
+    display: none !important;
+  }
+
+  /* 2. Optimize Hero glow filters and stop background gradient shift animation on touch devices */
+  .hero-glow {
+    filter: blur(35px) !important;
+    opacity: 0.12 !important;
+    animation: none !important;
+  }
+  .ambient-animated-gradient {
+    animation: none !important;
+  }
+
+  /* 3. Disable heavy backdrop-filter blurs on multiple scrolling cards to guarantee 60FPS native scrolling */
+  .service-card, .dentist-card, .testimonial-card, .process-step, .masonry-item {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* 4. Ensure hardware acceleration for smooth scroll contain */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: none;
+  }
+}
