@@ -1037,10 +1037,21 @@
   align-items: start;
 }
 
+.faq-sidebar {
+  position: sticky;
+  top: 8rem;
+  z-index: 2;
+}
+
 @media (max-width: 900px) {
   .faq-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  .faq-sidebar {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 1rem;
   }
 }
 
@@ -1079,8 +1090,8 @@
 
 /* ===== MOBILE GPU & TOUCH 60FPS PERFORMANCE OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
-  /* 1. Hide all 19 heavy blur(110px) ambient background circles on mobile devices to prevent GPU rasterization hang and stutter */
-  .ambient-blur-circle {
+  /* 1. Hide all 19 heavy blur(110px) ambient background circles and floating shapes on mobile devices to prevent overlap, hang, and clutter */
+  .ambient-blur-circle, .floating-subtle-shape {
     display: none !important;
   }
 

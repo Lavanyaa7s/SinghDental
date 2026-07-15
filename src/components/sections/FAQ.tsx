@@ -53,8 +53,8 @@ export default function FAQ() {
 
       <div className="container">
         <div className="faq-grid">
-          {/* Left sticky */}
-          <div style={{ position: "sticky", top: "8rem" }}>
+          {/* Left sticky on desktop, normal stacked on mobile */}
+          <div className="faq-sidebar">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
