@@ -127,14 +127,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "3rem",
-            alignItems: "start",
-          }}
-        >
+        <div className="contact-grid">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -159,8 +152,8 @@ export default function Contact() {
                 <h3 style={{ fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "1.5rem", color: "#0B1220", marginBottom: "0.75rem" }}>
                   Appointment Request Sent!
                 </h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", color: "#6B7280", lineHeight: 1.7 }}>
-                  Thank you, {formState.name.split(" ")[0]}! Our team will contact you within 24 hours to confirm your appointment.
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", color: "#6B7280", maxWidth: "340px", margin: "0 auto" }}>
+                  Thank you! Our front desk team will contact you shortly via phone/WhatsApp to confirm your slot.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -187,7 +180,7 @@ export default function Contact() {
                 </h3>
 
                 {/* Name & Email */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div className="contact-form-row">
                   <div>
                     <label htmlFor="name" style={labelStyle}>Full Name *</label>
                     <input
@@ -218,7 +211,7 @@ export default function Contact() {
                       required
                       value={formState.email}
                       onChange={handleChange}
-                      placeholder="jane@email.com"
+                      placeholder="jane@example.com"
                       style={inputStyle}
                       onFocus={(e) => {
                         e.target.style.borderColor = "#4FB7C5";
@@ -233,7 +226,7 @@ export default function Contact() {
                 </div>
 
                 {/* Phone & Service */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div className="contact-form-row">
                   <div>
                     <label htmlFor="phone" style={labelStyle}>Phone Number</label>
                     <input

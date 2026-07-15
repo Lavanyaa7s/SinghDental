@@ -38,16 +38,7 @@ export default function Footer() {
 
       <div className="container">
         {/* Top Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.5fr 1fr 1fr 1fr",
-            gap: "3rem",
-            marginBottom: "4rem",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-            paddingBottom: "4rem",
-          }}
-        >
+        <div className="footer-top-grid">
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1.25rem" }}>
